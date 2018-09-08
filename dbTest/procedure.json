@@ -1,0 +1,39 @@
+{
+	"city": 1,
+	"title": "Estacionamiento en zonas prohibidas",
+	"summary": "Estacionarse en lugares prohibidos, impidiendo el acceso a entradas en doble fila o en carriles confinados, etc, te puede hacer acreedor a una multa",
+	"reference": "Gaceta Oficial Distrito Federal, Reglamento de Tránsito del Distrito Federal, Art. 30",
+	"tags": [1],
+	"notes": "Sin notas",
+	"rating": 0
+}
+
+{
+	"city": 1,
+	"title": "No usar el cinturón de seguridad",
+	"summary": "El transportarse en un vehículo motorizado sin el uso del cinturón de seguridad lo hara acreedor de una multa de 5 a 10 unidades de cuenta de la Ciudad de México",
+	"reference": "Gaceta Oficial Distrito Federal, Reglamento de Tránsito del Distrito Federal, Art.40, Fraccíon: II l",
+	"tags": [1],
+	"notes": "Sin notas",
+	"rating": 0
+}
+
+{
+	"city": 1,
+	"title": "Rebasar el límite de velocidad permitido",
+	"summary": "No respetar los límites de velocidad de acurdo al señalamiento restrictivo lo hara acreedor a una multa de 10 a 30 unidades de cuenta de la Ciudad de México",
+	"reference": "Gaceta Oficial Distrito Federal, Reglamento de Tránsito del Distrito Federal, Art. 9",
+	"tags": [1],
+	"notes": "Sin notas",
+	"rating": 0
+}
+
+{
+	"city": 1,
+	"title": "Manejar bajo los efectos del alcohol o bajo algún tipo de drogas",
+	"summary": "Manejar bajo los efectos del alcohol y narcóticos, estupefacientes o psicotrópicos causaran arresto administrativo de 20 a 36 horas",
+	"reference": "Gaceta Oficial Distrito Federal, Reglamento de Tránsito del Distrito Federal, Capítulo II, Art. 50, 51 y 52",
+	"tags": [1],
+	"notes": "Sin notas",
+	"rating": 0
+}
