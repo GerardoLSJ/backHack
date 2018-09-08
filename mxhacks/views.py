@@ -24,8 +24,11 @@ class TestView(View):
         print('wwwwwooooooowwwww : ')
         print(id_token)
 
-        # decoded_token = auth.verify_id_token(id_token)
-        # uid = decoded_token['uid']
+        decoded_token = auth.verify_id_token(id_token)
+        uid = decoded_token['uid']
+        print('uid')
+        print(uid)
+        print('uid')
         return HttpResponse('hello', content_type='application/json')
 
     def post(self, request, *args, **kwargs):
