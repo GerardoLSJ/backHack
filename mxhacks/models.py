@@ -4,8 +4,8 @@ from django.contrib.postgres.fields import ArrayField
 class Tags(models.Model):
 	title = models.CharField(max_length=50, null=False, blank=False)
 	description = models.CharField(max_length=255, null=False, blank=True)
-	img = models.CharField(max_length=100)
-	rating = models.IntegerField()
+	img = models.CharField(max_length=100, null=False, blank=False, default=" ")
+	rating = models.IntegerField(null=False, blank=False, default=0)
 
 class Procedure(models.Model):
 	city = models.ForeignKey('City',on_delete=models.SET_NULL, null=True)
@@ -17,7 +17,7 @@ class Procedure(models.Model):
 	notes = models.CharField(max_length=1000)
 	created = models.DateField(auto_now_add=True)
 	update = models.DateField(auto_now=True,blank=True, null=True)
-	rating = models.IntegerField()
+	rating = models.IntegerField(null=False, blank=False, default=0)
 
 class Law(models.Model):
 	city = models.ForeignKey('City',on_delete=models.SET_NULL, null=True)
@@ -30,7 +30,7 @@ class Law(models.Model):
 	notes = models.CharField(max_length=1000)
 	created = models.DateField(auto_now_add=True)
 	update = models.DateField(auto_now=True,blank=True, null=True)
-	rating = models.IntegerField()
+	rating = models.IntegerField(null=False, blank=False, default=0)
 
 class City(models.Model):
 	name = models.CharField(max_length=50)

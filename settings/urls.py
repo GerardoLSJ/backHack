@@ -34,6 +34,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
     url(r'^api/test/', views.TestView.as_view()),
+    url(r'^api/procedure2/', views.ProcedureView.as_view()),
+
 
 
 ]

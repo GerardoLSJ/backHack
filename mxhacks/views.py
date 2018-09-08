@@ -5,7 +5,8 @@ from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from firebase_admin import auth
-from rest_framework import viewsets
+from rest_framework import viewsets,generics
+import django_filters.rest_framework
 
 from .serializers import(TagsSerializer, ProcedureSerializer,
                          LawSerializer, CitySerializer,
@@ -49,10 +50,19 @@ class TagsViewSet(viewsets.ModelViewSet):
 class ProcedureViewSet(viewsets.ModelViewSet):
     queryset = Procedure.objects.all()
     serializer_class = ProcedureSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_fields = ('__all__')
+
+class ProcedureView(generics.ListAPIView):
+    queryset = Procedure.objects.all()
+    serializer_class = ProcedureSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_fields = ('__all__')
 
 class LawViewSet(viewsets.ModelViewSet):
     queryset = Law.objects.all()
     serializer_class = LawSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
 
 class CityViewSet(viewsets.ModelViewSet):
     queryset = City.objects.all()
