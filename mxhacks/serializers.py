@@ -14,7 +14,7 @@ class StringArrayField(ListField):
 
     def to_internal_value(self, data):
     	data = data.split(",")  # convert string to list
-    	return super().to_internal_value(self, data)
+    	return super().to_internal_value(data)
 
 class TagsSerializer(serializers.ModelSerializer):
 	class Meta:
