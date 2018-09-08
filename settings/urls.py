@@ -23,7 +23,12 @@ from django.contrib import admin
 from mxhacks import views
 
 router = routers.DefaultRouter()
-#router.register(r'users', views.UserViewSet)
+#router.register(r'formato', views.FormatoViewSet , base_name='formatoView')
+router.register(r'Tags', views.TagsViewSet, base_name='TagsViewSet')
+router.register(r'Procedure', views.ProcedureViewSet, base_name='ProcedureViewSet')
+router.register(r'Law', views.LawViewSet, base_name='LawViewSet')
+router.register(r'City', views.CityViewSet, base_name='CityViewSet')
+router.register(r'Country', views.CountryViewSet, base_name='CountryViewSet')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

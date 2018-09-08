@@ -5,6 +5,14 @@ from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from firebase_admin import auth
+from rest_framework import viewsets
+
+from .serializers import(TagsSerializer, ProcedureSerializer,
+                         LawSerializer, CitySerializer,
+                         CountrySerializer)
+
+from .models import(Tags, Procedure, Law, City, Country)
+
 # Create your views here.
 
 
@@ -30,3 +38,23 @@ class TestView(View):
 
         # pdf = render_to_pdf(data)
         return HttpResponse(pdf, content_type='application/json')
+
+class TagsViewSet(viewsets.ModelViewSet):
+    queryset = Tags.objects.all()
+    serializer_class = TagsSerializer
+
+class ProcedureViewSet(viewsets.ModelViewSet):
+    queryset = Procedure.objects.all()
+    serializer_class = ProcedureSerializer
+
+class LawViewSet(viewsets.ModelViewSet):
+    queryset = Law.objects.all()
+    serializer_class = LawSerializer
+
+class CityViewSet(viewsets.ModelViewSet):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
+
+class CountryViewSet(viewsets.ModelViewSet):
+    queryset = Country.objects.all()
+    serializer_class = CountrySerializer
