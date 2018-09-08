@@ -25,7 +25,15 @@ SECRET_KEY = 's^e*acf7g97i+ovl1=+xix+^=u6vx#n2ycclhcc9it2^c--_&m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL=True
+
+
+import firebase_admin
+from firebase_admin import credentials
+
+cred = credentials.Certificate("settings/firebase.json")
+firebase_admin.initialize_app(cred)
 
 
 # Application definition
@@ -37,9 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'django_filters',
+    'corsheaders',
+    'mxhacks.apps.MxhacksConfig'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
