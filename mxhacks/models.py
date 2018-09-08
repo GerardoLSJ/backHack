@@ -6,8 +6,9 @@ class Tags(models.Model):
 	description = models.CharField(max_length=255, null=False, blank=True)
 	img = models.CharField(max_length=100, null=False, blank=False, default=" ")
 	rating = models.IntegerField(null=False, blank=False, default=0)
-    def __str__(self):
-        return '%s' % (self.title)
+	def __str__(self):
+		return '%s' % (self.title)
+
 class Procedure(models.Model):
 	city = models.ForeignKey('City',on_delete=models.SET_NULL, null=True)
 	title = models.CharField(max_length=200)
@@ -19,8 +20,8 @@ class Procedure(models.Model):
 	created = models.DateField(auto_now_add=True)
 	update = models.DateField(auto_now=True,blank=True, null=True)
 	rating = models.IntegerField(null=False, blank=False, default=0)
-    def __str__(self):
-        return '%s' % (self.title)
+	def __str__(self):
+		return '%s' % (self.title)
 class Law(models.Model):
 	city = models.ForeignKey('City',on_delete=models.SET_NULL, null=True)
 	title = models.CharField(max_length=200)
@@ -33,15 +34,15 @@ class Law(models.Model):
 	created = models.DateField(auto_now_add=True)
 	update = models.DateField(auto_now=True,blank=True, null=True)
 	rating = models.IntegerField(null=False, blank=False, default=0)
-    def __str__(self):
-        return '%s' % (self.title)
+	def __str__(self):
+		return '%s' % (self.title)
 class City(models.Model):
 	name = models.CharField(max_length=50)
 	country = models.ForeignKey('Country', on_delete=models.SET_NULL, null=True)
-    def __str__(self):
-        return '%s' % (self.name)
+	def __str__(self):
+		return '%s' % (self.name)
 class Country(models.Model):
 	name = models.CharField(max_length=50)
-    def __str__(self):
-        return '%s' % (self.name)
+	def __str__(self):
+		return '%s' % (self.name)
 
