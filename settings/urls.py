@@ -24,11 +24,11 @@ from mxhacks import views
 
 router = routers.DefaultRouter()
 #router.register(r'formato', views.FormatoViewSet , base_name='formatoView')
-router.register(r'Tags', views.TagsViewSet, base_name='TagsViewSet')
-router.register(r'Procedure', views.ProcedureViewSet, base_name='ProcedureViewSet')
-router.register(r'Law', views.LawViewSet, base_name='LawViewSet')
-router.register(r'City', views.CityViewSet, base_name='CityViewSet')
-router.register(r'Country', views.CountryViewSet, base_name='CountryViewSet')
+router.register(r'tags', views.TagsViewSet, base_name='TagsViewSet')
+router.register(r'procedure', views.ProcedureViewSet, base_name='ProcedureViewSet')
+router.register(r'law', views.LawViewSet, base_name='LawViewSet')
+router.register(r'city', views.CityViewSet, base_name='CityViewSet')
+router.register(r'country', views.CountryViewSet, base_name='CountryViewSet')
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
