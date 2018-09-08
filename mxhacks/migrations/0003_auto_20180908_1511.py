@@ -16,13 +16,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='law',
             name='bullets',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(default='', max_length=50, null=True), default='', size=15),
+            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(default='', max_length=50, null=True), default={}, size=15),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='procedure',
             name='steps',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(default='', max_length=50, null=True), default='', size=15),
+            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(default='', max_length=50, null=True), default={}, size=15),
             preserve_default=False,
         ),
         migrations.AlterField(
