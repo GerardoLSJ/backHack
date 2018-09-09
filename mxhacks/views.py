@@ -71,3 +71,23 @@ class CityViewSet(viewsets.ModelViewSet):
 class CountryViewSet(viewsets.ModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
+
+@method_decorator(csrf_exempt, name='dispatch')
+class AudioView(View):
+    def get(self, request, *args, **kwargs):
+        print('holaaa')
+        return HttpResponse('hello', content_type='application/json')
+
+    def post(self, request, *args, **kwargs):
+        # data = request.body.decode("utf-8") 
+        # for key, value in request.POST.items():
+        #     print(key, value)
+        
+        # print('hello ___')
+        # print(data)
+
+        # pdf = render_to_pdf(data)
+        print(request)
+        print(request.body)
+        print(request.FILES)
+        return HttpResponse(request, content_type='application/json')
