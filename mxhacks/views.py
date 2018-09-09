@@ -5,7 +5,7 @@ from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from firebase_admin import auth
-from rest_framework import viewsets,generics
+from rest_framework import viewsets,generics,filters
 import django_filters.rest_framework
 
 from .serializers import(TagsSerializer, ProcedureSerializer,
@@ -46,23 +46,47 @@ class TestView(View):
 class TagsViewSet(viewsets.ModelViewSet):
     queryset = Tags.objects.all()
     serializer_class = TagsSerializer
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,filters.SearchFilter)
+    filter_fields = ('__all__')
+    search_fields = ('title',  'rating')
+    
+    def filter_queryset(self, queryset):
+        # super needs to be called to filter backends to be applied
+        queryset = super().filter_queryset(queryset)
+        # some extra filtering
+        return queryset
 
 class ProcedureViewSet(viewsets.ModelViewSet):
     queryset = Procedure.objects.all()
     serializer_class = ProcedureSerializer
-    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,filters.SearchFilter)
     filter_fields = ('__all__')
+    search_fields = ('title', 'summary', 'tags__title')
+    
+    def filter_queryset(self, queryset):
+        # super needs to be called to filter backends to be applied
+        queryset = super().filter_queryset(queryset)
+        # some extra filtering
+        return queryset
 
-class ProcedureView(generics.ListAPIView):
-    queryset = Procedure.objects.all()
-    serializer_class = ProcedureSerializer
-    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
-    filter_fields = ('__all__')
+# class ProcedureView(generics.ListAPIView):
+#     queryset = Procedure.objects.all()
+#     serializer_class = ProcedureSerializer
+#     filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+#     filter_fields = ('__all__')
 
 class LawViewSet(viewsets.ModelViewSet):
     queryset = Law.objects.all()
     serializer_class = LawSerializer
-    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    filter_backends = (django_filters.rest_framework.DjangoFilterBackend,filters.SearchFilter)
+    filter_fields = ('__all__')
+    search_fields = ('title', 'summary','tags__title')
+    
+    def filter_queryset(self, queryset):
+        # super needs to be called to filter backends to be applied
+        queryset = super().filter_queryset(queryset)
+        # some extra filtering
+        return queryset
 
 class CityViewSet(viewsets.ModelViewSet):
     queryset = City.objects.all()
